@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <LinearLayout
+        android:id="@+id/container_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar3"
+            layout="@layout/toolbar" />
+
+    </LinearLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:fillViewport="true"
+        android:measureAllChildren="true"
+        android:scrollbars="horizontal"
+        android:scrollbarStyle="outsideOverlay"
+        >
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+
+        android:textIsSelectable="true"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Personal Information"
+            android:textStyle="bold" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textIsSelectable="true">
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Names"
+            android:layout_column="0"
+            android:textStyle="bold"
+            android:paddingRight="30dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="PaySlip For"
+            android:id="@+id/NAMES"
+            android:layout_column="2"
+            android:textStyle="normal"
+            android:singleLine="false"
+            android:paddingRight="50dp"/>
+    </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textIsSelectable="true">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Email"
+                android:layout_column="0"
+                android:textStyle="bold"
+                android:paddingRight="30dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="PaySlip For"
+                android:id="@+id/Email"
+                android:layout_column="2"
+                android:textStyle="normal" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textIsSelectable="true">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Staff ID"
+                android:layout_column="0"
+                android:textStyle="bold"
+                android:paddingRight="30dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="PaySlip For"
+                android:id="@+id/ID"
+                android:layout_column="2"
+                android:textStyle="normal" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textIsSelectable="true">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Department"
+                android:layout_column="0"
+                android:textStyle="bold"
+                android:paddingRight="30dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="PaySlip For"
+                android:id="@+id/DPT"
+                android:layout_column="2"
+                android:textStyle="normal" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textIsSelectable="true">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="DESIGNATION"
+                android:layout_column="0"
+                android:textStyle="bold"
+                android:paddingRight="30dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="PaySlip For"
+                android:id="@+id/DESG"
+                android:layout_column="2"
+                android:textStyle="normal" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textIsSelectable="true">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Date Employed"
+                android:layout_column="0"
+                android:textStyle="bold"
+                android:paddingRight="30dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="PaySlip For"
+                android:id="@+id/DateEmployed"
+                android:layout_column="2"
+                android:textStyle="normal" />
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Payroll Information"
+            android:textStyle="bold" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textIsSelectable="true">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Bank"
+                android:layout_column="0"
+                android:textStyle="bold"
+                android:paddingRight="30dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="PaySlip For"
+                android:id="@+id/BANK"
+                android:layout_column="2"
+                android:textStyle="normal" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textIsSelectable="true">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Branch"
+                android:layout_column="0"
+                android:textStyle="bold"
+                android:paddingRight="30dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="PaySlip For"
+                android:id="@+id/Branch"
+                android:layout_column="2"
+                android:textStyle="normal" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textIsSelectable="true">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Account No"
+                android:layout_column="0"
+                android:textStyle="bold"
+                android:paddingRight="30dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="PaySlip For"
+                android:id="@+id/accountNO"
+                android:layout_column="2"
+                android:textStyle="normal" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textIsSelectable="true">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="PIN NO"
+                android:layout_column="0"
+                android:textStyle="bold"
+                android:paddingRight="30dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="PaySlip For"
+                android:id="@+id/PIN"
+                android:layout_column="2"
+                android:textStyle="normal" />
+        </TableRow>
+    </TableLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+
+    <include layout="@layout/footer_layout"/>
+</LinearLayout>

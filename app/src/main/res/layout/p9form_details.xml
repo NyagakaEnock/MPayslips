@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    android:id="@+id/scrollViewP"
+    >
+    <HorizontalScrollView
+        android:id="@+id/hsv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:fillViewport="true"
+        android:measureAllChildren="true"
+        android:scrollbars="horizontal"
+        android:scrollbarStyle="outsideOverlay">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/P9MainLayout"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="40dp">
+
+     <TextView
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="KENYA REVENUE AUTHORITY"
+                android:layout_column="0"
+                android:textStyle="bold"
+                android:paddingRight="30dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:gravity="center_horizontal"
+                android:textSize="25dp"
+                android:textIsSelectable="true"/>
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="DOMESTIC TAX DEPARTMENT"
+                android:layout_column="0"
+                android:textStyle="normal"
+                android:paddingRight="30dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="0dp"
+                android:gravity="center_horizontal"
+                android:textSize="20dp"
+             />
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="TAX DEDUCTION CARD"
+                android:layout_column="0"
+                android:textStyle="normal"
+                android:paddingRight="30dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="0dp"
+                android:gravity="center_horizontal"
+                android:id="@+id/Card"
+                android:textSize="20dp"
+           />
+
+           <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="100dp"
+                android:id="@+id/myTable2"
+                android:textIsSelectable="true"
+                >
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textIsSelectable="true"
+                    android:layout_marginTop="0dp">
+
+                    <TextView
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Employer's Name"
+                        android:layout_column="0"
+                        android:textStyle="normal"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="100dp"
+                        android:paddingTop="0dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="XX"
+                        android:id="@+id/EmployerName"
+                        android:layout_column="2"
+                        android:textStyle="normal"
+
+                        android:paddingTop="0dp"/>
+                    <TextView
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Employer's PIN"
+                        android:layout_column="3"
+                        android:textStyle="normal"
+                        android:paddingRight="10dp"
+                        android:paddingTop="0dp"
+                        android:paddingLeft="200dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="XX"
+                        android:id="@+id/EmployerPIN"
+                        android:layout_column="4"
+                        android:textStyle="normal"
+
+                        android:paddingTop="0dp"/>
+
+
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Employee's Name"
+                        android:id="@+id/DESIGNATION"
+                        android:layout_column="0"
+                        android:textStyle="normal"
+                        android:paddingTop="0dp"
+                        android:paddingLeft="100dp"
+                       />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="XX"
+                        android:layout_column="2"
+                        android:textStyle="normal"
+                        android:paddingRight="50dp"
+                        android:paddingTop="0dp"
+                        android:id="@+id/EmployeeName" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Employee's PIN"
+                        android:layout_column="0"
+                        android:textStyle="normal"
+                        android:paddingTop="0dp"
+                        android:paddingLeft="200dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="XX"
+                        android:id="@+id/EmployeePIN"
+                        android:layout_column="2"
+                        android:textStyle="normal"
+                        android:paddingTop="0dp"/>
+                </TableRow>
+
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#000000"/>
+            </TableLayout>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="100dp"
+                android:id="@+id/p9Table">
+
+            </TableLayout>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="100dp"
+                android:id="@+id/p9Table2">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Employe"
+                        android:layout_column="0"
+                        android:textStyle="normal"
+                        android:paddingTop="0dp"
+                        android:paddingLeft="200dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="XX"
+                        android:layout_column="2"
+                        android:textStyle="normal"
+                        android:paddingRight="50dp"
+                        android:paddingTop="0dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Employee's PIN"
+                        android:layout_column="0"
+                        android:textStyle="normal"
+                        android:paddingTop="0dp"
+                        android:paddingLeft="200dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="XX"
+                        android:layout_column="2"
+                        android:textStyle="normal"
+                        android:paddingTop="0dp"/>
+                </TableRow>
+            </TableLayout>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="100dp"
+                android:id="@+id/p9Table3">
+
+            </TableLayout>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="100dp"
+                android:id="@+id/Sum">
+
+            </TableLayout>
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="To be completed by Employer at the end of the Year"
+                android:layout_column="0"
+                android:textStyle="normal"
+                android:paddingRight="30dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                />
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textIsSelectable="true"
+                    android:layout_marginTop="0dp">
+
+                    <TextView
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="TOTAL CHARGEABLE PAY (COL H) Kshs"
+                        android:layout_column="0"
+                        android:textStyle="normal"
+                        android:paddingRight="55dp"
+                        android:paddingTop="0dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text=""
+                        android:paddingRight="100dp"
+                        android:layout_column="2"
+                        android:textStyle="normal"
+                        android:id="@+id/ChargeablePaySum"
+                        android:paddingTop="0dp"/>
+                    <TextView
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="TOTAL TAX (COL) Kshs"
+                        android:layout_column="3"
+                        android:textStyle="normal"
+                        android:paddingRight="100dp"
+                        android:paddingTop="0dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text=""
+                        android:id="@+id/PAYEAmountSum"
+                        android:layout_column="4"
+                        android:textStyle="normal"
+                        android:paddingTop="0dp"/>
+
+
+
+                </TableRow>
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="IMPORTANT"
+                    android:layout_column="0"
+                    android:textStyle="bold"
+                    android:paddingRight="30dp"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+
+                    />
+            </TableLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:id="@+id/LastTable">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textIsSelectable="true"
+                    android:layout_marginTop="0dp">
+
+                    <TextView
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text=""
+                        android:layout_column="0"
+                        android:textStyle="normal"
+                        android:paddingRight="100dp"
+                        android:paddingTop="0dp"
+                        android:id="@+id/leftTextView"
+                        android:singleLine="false"
+                        android:ellipsize="end"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="261,500.00"
+                        android:paddingRight="10dp"
+                        android:layout_column="2"
+                        android:textStyle="normal"
+                        android:paddingTop="0dp"
+                        android:id="@+id/rightTextView"
+                        android:singleLine="false"
+                        android:ellipsize="end"/>
+
+
+
+
+
+                </TableRow>
+
+            </TableLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+</ScrollView>

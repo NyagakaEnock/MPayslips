@@ -1,0 +1,68 @@
+    <ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:background="@drawable/bg"
+    android:weightSum="1"
+        android:focusableInTouchMode="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:focusableInTouchMode="true"
+            >
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/imageView3"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/sample_payslip"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your Username"
+                style="@style/App_TextViewStyle"
+                android:id="@+id/userTextView"/>
+            <EditText
+                android:id="@+id/loginEmail"
+                android:hint="Username"
+                style="@style/App_EditTextStyle"
+                android:inputType="textEmailAddress"
+                android:text="kiarie"
+                android:layout_below="@id/userTextView"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                style="@style/App_TextViewStyle"/>
+            <EditText
+                android:id="@+id/Password"
+                android:hint="Password"
+                style="@style/App_EditTextStyle"
+                android:inputType="textPassword"
+                android:text="0703212414" />
+
+              <TextView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Forgot Password"
+                  style="@style/App_TextViewStyle"/>
+              <Button android:id="@+id/btnLogin"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Login"
+                  android:background="#007AFF"
+                  android:layout_marginTop="10dp"
+                  android:textColor="@android:color/white"
+                  android:layout_gravity="center"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginRight="10dp" />
+
+        </LinearLayout>
+  </ScrollView>

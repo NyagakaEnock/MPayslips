@@ -1,0 +1,32 @@
+<adapter.DashboardLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1">
+
+    <!--  News Feed Button -->
+
+    <Button
+        android:id="@+id/btn_news_feed"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/boy23"
+        android:text="My Profile" />
+
+    <!--  Friends Button -->
+    <Button
+        android:id="@+id/payslip"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/sample_payslip1x"
+        android:text="View Payslip" />
+    <Button
+        android:id="@+id/btn_places"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/padlock1"
+        android:text="Payslip Password" />
+   <Button
+        android:id="@+id/btn_places1"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/icon_statement"
+        android:text="View P9 Form" />
+
+    </adapter.DashboardLayout>

@@ -1,0 +1,18 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="period">65dp</dimen>
+    <dimen name="basic">80dp</dimen>
+    <dimen name="quarters">80dp</dimen>
+    <dimen name="gross">80dp</dimen>
+    <dimen name="contribution">195dp</dimen>
+    <dimen name="owner">70dp</dimen>
+    <dimen name="retirement">100dp</dimen>
+    <dimen name="chargeable">85dp</dimen>
+    <dimen name="tax">80dp</dimen>
+    <dimen name="personal">80dp</dimen>
+    <dimen name="insurance">80dp</dimen>
+    <dimen name="payee">80dp</dimen>
+    <dimen name="Total">144dp</dimen>
+</resources>
