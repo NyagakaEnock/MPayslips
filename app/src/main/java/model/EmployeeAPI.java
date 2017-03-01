@@ -33,7 +33,6 @@ public interface EmployeeAPI {
     @FormUrlEncoded
     @POST("/Home/ChangePassword")
     public void ChangePassword(
-            @Field("Current") String Current,
             @Field("Confirm") String Password,
             @Field("StaffIDNO") String StaffId,
             Callback<Response> callback);

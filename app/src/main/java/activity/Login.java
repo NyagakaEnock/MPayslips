@@ -90,6 +90,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                         try {
                             reader = new BufferedReader(new InputStreamReader(result.getBody().in()));
                             output = reader.readLine();
+
                             if(!output.equals("False"))
                             {
 
@@ -113,7 +114,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                     @Override
                     public void failure(RetrofitError error) {
                         loading.dismiss();
-                        MyalertDialog("Connection Failed. Please Try again "+error.toString());
+                        MyalertDialog("Connection Failed.\n Please check your internet connection and try again."+error.getMessage());
                     }
                 }
         );

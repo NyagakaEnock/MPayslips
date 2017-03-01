@@ -1,6 +1,7 @@
 package activity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -43,6 +44,8 @@ import retrofit.client.Response;
 public class MainActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private Button payslip;
+    private Context appContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
             LayoutInflater inflater = (MainActivity.this).getLayoutInflater();
             View dialogView = inflater.inflate(R.layout.payslip_password, null);
-            final TextView password  = (TextView)dialogView.findViewById(R.id.txtPassword2);
+
             final TextView txtNew  = (TextView)dialogView.findViewById(R.id.New);
             final TextView txtConfirm  = (TextView)dialogView.findViewById(R.id.Confirm);
             builder.setTitle("PaySlip Password");
@@ -132,9 +135,7 @@ public class MainActivity extends AppCompatActivity {
                     .setPositiveButton("Change Password", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int id) {
-                                    if(password.length()==0) {
-                                        Toast.makeText(getApplicationContext(),"Please Enter your Current Payslip Password",Toast.LENGTH_LONG).show();
-                                    }else if(txtNew.length()==0) {
+                                    if(txtNew.length()==0) {
                                         Toast.makeText(getApplicationContext(),"Please Enter your new Payslip Password",Toast.LENGTH_LONG).show();
                                     }else if(txtConfirm.length()==0) {
                                         Toast.makeText(getApplicationContext(),"Please Confirm your new Payslip Password",Toast.LENGTH_LONG).show();
@@ -143,10 +144,9 @@ public class MainActivity extends AppCompatActivity {
                                     }else{
                                         SharedPreferences prefs = getSharedPreferences("MySessions", 0);
                                         final String StaffIDNO = prefs.getString("EmployeeNo", "");
-                                        String Password = password.getText().toString();
                                         String Confirm = txtConfirm.getText().toString();
 
-                                        ChangePassword(Password, Confirm,StaffIDNO);
+                                        ChangePassword(MainActivity.this,Confirm,StaffIDNO);
 
                                     }
 
@@ -160,11 +160,11 @@ public class MainActivity extends AppCompatActivity {
         }
         return  true;
     }
-    public  void ChangePassword(String Password,String Confirm, String StaffId)
+    public  void ChangePassword(final Context context, String Confirm, String StaffId)
     {
-        final ProgressDialog loading = ProgressDialog.show(MainActivity.this, "", "Please wait...", false, false);
+        final ProgressDialog loading = ProgressDialog.show(context, "", "Please wait...", false, false);
         RestAdapter.Builder builder = new RestAdapter.Builder();
-        final Globals globalRecordFetch = new Globals(getApplicationContext());
+        final Globals globalRecordFetch = new Globals(context);
         builder.setEndpoint(globalRecordFetch.ROOT_URL);
         OkHttpClient okHttpClient = new OkHttpClient();
         okHttpClient.setReadTimeout(120 * 1000, TimeUnit.MILLISECONDS);
@@ -173,7 +173,6 @@ public class MainActivity extends AppCompatActivity {
         RestAdapter restAdapter = builder.build();
         EmployeeAPI api = restAdapter.create(EmployeeAPI.class);
         api.ChangePassword(
-                Password,
                 Confirm,
                 StaffId,
                 new Callback<Response>() {
@@ -185,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                             reader = new BufferedReader(new InputStreamReader(result.getBody().in()));
                             output = reader.readLine();
 
-                                MyalertDialog(output);
+                                MyalertDialog(context,output);
 
 
                         } catch (IOException e) {
@@ -196,16 +195,16 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void failure(RetrofitError error) {
                         loading.dismiss();
-                        MyalertDialog("Connection Failed. Please Try again "+error.toString());
+                        MyalertDialog(context,"Connection Failed.\n Please check your internet connection and try again.");
                     }
                 }
         );
     }
 
-    public void MyalertDialog(String msg)
+    public void MyalertDialog(Context context,String msg)
     {
         AlertDialog.Builder builder =
-                new AlertDialog.Builder(MainActivity.this, R.style.AppCompatAlertDialogStyle);
+                new AlertDialog.Builder(context, R.style.AppCompatAlertDialogStyle);
         builder.setTitle("Response")
                 .setMessage(msg)
                 .setIcon(android.R.drawable.ic_dialog_alert)

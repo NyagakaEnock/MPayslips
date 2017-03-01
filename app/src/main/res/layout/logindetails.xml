@@ -25,15 +25,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your Username"
+                android:text="Email Address"
                 style="@style/App_TextViewStyle"
                 android:id="@+id/userTextView"/>
             <EditText
                 android:id="@+id/loginEmail"
-                android:hint="Username"
+                android:hint="Email Address"
                 style="@style/App_EditTextStyle"
                 android:inputType="textEmailAddress"
-                android:text="kiarie"
+                android:text=""
                 android:layout_below="@id/userTextView"/>
 
             <TextView
@@ -46,13 +46,8 @@
                 android:hint="Password"
                 style="@style/App_EditTextStyle"
                 android:inputType="textPassword"
-                android:text="0703212414" />
+                android:text="" />
 
-              <TextView
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:text="Forgot Password"
-                  style="@style/App_TextViewStyle"/>
               <Button android:id="@+id/btnLogin"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"

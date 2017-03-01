@@ -171,7 +171,6 @@ public class Dashboard extends Fragment {
                 final MainActivity mainActivity = new MainActivity();
                 LayoutInflater inflater = getActivity().getLayoutInflater();
                 View dialogView = inflater.inflate(R.layout.payslip_password, null);
-                final TextView password  = (TextView)dialogView.findViewById(R.id.txtPassword2);
                 final TextView txtNew  = (TextView)dialogView.findViewById(R.id.New);
                 final TextView txtConfirm  = (TextView)dialogView.findViewById(R.id.Confirm);
                 builder.setTitle("PaySlip Password");
@@ -182,9 +181,7 @@ public class Dashboard extends Fragment {
                         .setPositiveButton("Change Password", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int id) {
-                                        if(password.length()==0) {
-                                            Toast.makeText(getActivity(),"Please Enter your Current Payslip Password",Toast.LENGTH_LONG).show();
-                                        }else if(txtNew.length()==0) {
+                                      if(txtNew.length()==0) {
                                             Toast.makeText(getActivity(),"Please Enter your new Payslip Password",Toast.LENGTH_LONG).show();
                                         }else if(txtConfirm.length()==0) {
                                             Toast.makeText(getActivity(),"Please Confirm your new Payslip Password",Toast.LENGTH_LONG).show();
@@ -194,10 +191,9 @@ public class Dashboard extends Fragment {
                                             SharedPreferences prefs = getActivity().getSharedPreferences("MySessions", 0);
 
                                             final String StaffIDNO = prefs.getString("EmployeeNo", "");
-                                            String Password = password.getText().toString();
                                             String Confirm = txtConfirm.getText().toString();
 
-                                            mainActivity.ChangePassword(Password, Confirm,StaffIDNO);
+                                            mainActivity.ChangePassword(getActivity(),Confirm,StaffIDNO);
 
                                         }
 

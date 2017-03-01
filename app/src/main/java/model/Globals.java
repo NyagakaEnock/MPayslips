@@ -25,7 +25,7 @@ import activity.Dashboard;
  * Created by Enock on 9/28/2016.
  */
 public class Globals {
-    public final String ROOT_URL = "http://192.168.1.157:8012/M-Payslips";
+    public final String ROOT_URL = "http://192.168.1.98:8012/M-Payslips";
     //public final String ROOT_URL = "http://192.168.42.164:8012/M-Payslips";
     private Resources mResources;
     private Bitmap mBitmap;

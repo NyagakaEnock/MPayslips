@@ -121,7 +121,20 @@ public class PaySlip extends AppCompatActivity {
         NetToGross = (TextView)findViewById(R.id.NetToGross);
         SharedPreferences prefs = getSharedPreferences("MySessions", 0);
         String jsonResponce = prefs.getString("jsonResponce", null);
-        preparePaySlipData("PaySlip",jsonResponce);
+        try{
+            JSONObject jsonObject = new JSONObject(jsonResponce);
+            JSONArray jresult = jsonObject.getJSONArray("CheckPayslip");
+            if(jresult.length()==0)
+            {
+                MyalertDialog("Your Payslip for this period has not been Authorized for view");
+            }else{
+                preparePaySlipData("PaySlip",jsonResponce);
+            }
+        }catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+
     }
 
     public  void setTitle(String title)
@@ -513,8 +526,12 @@ public class PaySlip extends AppCompatActivity {
                         try {
                             reader = new BufferedReader(new InputStreamReader(result.getBody().in()));
                             output = reader.readLine();
-
-                            preparePaySlipData("PaySlip",output);
+                            if(output.equals("False"))
+                            {
+                                MyalertDialog("Your Payslip for this period has not been Authorized for view");
+                            }else {
+                                preparePaySlipData("PaySlip", output);
+                            }
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -523,7 +540,7 @@ public class PaySlip extends AppCompatActivity {
                     @Override
                     public void failure(RetrofitError error) {
                         loading.dismiss();
-                        MyalertDialog("Connection Failed. Please Try again "+error.toString());
+                        MyalertDialog("Connection Failed.\n Please check your internet connection and try again.");
                     }
                 }
         );

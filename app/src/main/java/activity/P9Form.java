@@ -99,8 +99,20 @@ public class P9Form extends AppCompatActivity {
         mZoomableLayout = (ScrollView)findViewById(R.id.scrollViewP);
         SharedPreferences prefs = getSharedPreferences("MySessions", 0);
         String jsonResponce = prefs.getString("jsonResponce", null);
-        //final ScaleGestureDetector scaleGestureDetector = new ScaleGestureDetector(this, new OnPinchListener());
-        prepareHeadingInfo("P9",jsonResponce,"EmployeeDetails",jsonResponce);
+        try{
+            JSONObject jsonObject = new JSONObject(jsonResponce);
+            JSONArray jresult = jsonObject.getJSONArray("CheckP9Form");
+            if(jresult.length()==0)
+            {
+                MyalertDialog("Your P9's for this period has not been Authorized for view");
+            }else{
+                prepareHeadingInfo("P9",jsonResponce,"EmployeeDetails",jsonResponce);
+            }
+        }catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+
 
 
     }
@@ -185,7 +197,7 @@ public class P9Form extends AppCompatActivity {
                     @Override
                     public void failure(RetrofitError error) {
                         loading.dismiss();
-                        MyalertDialog("Connection Failed. Please Try again "+error.toString());
+                        MyalertDialog("Connection Failed.\n Please check your internet connection and try again.");
                     }
                 }
         );
