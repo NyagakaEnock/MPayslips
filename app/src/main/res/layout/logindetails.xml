@@ -32,8 +32,8 @@
                 android:id="@+id/loginEmail"
                 android:hint="Email Address"
                 style="@style/App_EditTextStyle"
-                android:inputType="textEmailAddress"
-                android:text=""
+                android:text="hosborneotii@gmail.com"
+                android:inputType="textEmailAddress|textAutoCorrect"
                 android:layout_below="@id/userTextView"/>
 
             <TextView
@@ -46,7 +46,8 @@
                 android:hint="Password"
                 style="@style/App_EditTextStyle"
                 android:inputType="textPassword"
-                android:text="" />
+                android:text=""
+                android:imeOptions="actionGo"/>
 
               <Button android:id="@+id/btnLogin"
                   android:layout_width="match_parent"

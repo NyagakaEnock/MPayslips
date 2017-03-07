@@ -15,6 +15,11 @@
         android:title="Pay Slip Password"
         android:orderInCategory="100"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/passwordx"
+        android:title="Change Password"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/Logout"
@@ -30,6 +35,7 @@
         android:id="@+id/Exit"
         android:title="Exit"
         android:orderInCategory="100"
-        app:showAsAction="never" />
+        app:showAsAction="never"
+        />
 
 </menu>

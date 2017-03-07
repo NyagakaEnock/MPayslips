@@ -91,12 +91,10 @@ public class MainActivity extends AppCompatActivity {
             sharingIntent.setType("text/plain");
             String shareBody = "Let me recommend you this application.\n" +
                     "\n" +
-                    "M-Payslip Mobile App Allows Employees to view their Payslips and P9 Forms. The App is Integrated with the Main Payroll System. \n" +
-                    "\n" +
-                    "http://developer.fortunekenya.com/android/MPayslips.apk\n" +
+                    "PW-Payslip Mobile App Allows Employees to view their Payslips and P9 Forms. The App is Integrated with the Main Payroll System. \n" +
                     "\n" +
                     "For more Information call Fortune Technologies Ltd on 0722769149 or Email support@fortunekenya.com";
-            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "M-Payslip Android App");
+            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "PW-Payslip Android App");
             sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
             startActivity(Intent.createChooser(sharingIntent, "Share via"));
             return true;
@@ -104,6 +102,52 @@ public class MainActivity extends AppCompatActivity {
         {
             Intent intent = new Intent(MainActivity.this, AboutApp.class);
             startActivity(intent);
+        }else if(id == R.id.passwordx)
+        {
+                      /* Intent intent = new Intent(getActivity(), PaySlip.class);
+                Dashboard.this.startActivity(intent);*/
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+            LayoutInflater inflater = (MainActivity.this).getLayoutInflater();
+            View dialogView = inflater.inflate(R.layout.changepassword, null);
+
+            final TextView txtNew  = (TextView)dialogView.findViewById(R.id.NewPassword);
+            final TextView txtConfirm  = (TextView)dialogView.findViewById(R.id.ConfirmPassword);
+            final TextView txtCurrent  = (TextView)dialogView.findViewById(R.id.CurrentPassword);
+            builder.setTitle("Change Password");
+            builder.setCancelable(false);
+            builder.setNegativeButton("Cancel",null);
+            builder.setIcon(R.drawable.padlock2);
+            builder.setView(dialogView)
+                    .setPositiveButton("Change Password", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int id) {
+                                    if(txtCurrent.length()==0) {
+                                        Toast.makeText(getApplicationContext(),"Please Enter your Current Password",Toast.LENGTH_LONG).show();
+
+                                    }else if(txtNew.length()==0) {
+                                        Toast.makeText(getApplicationContext(),"Please Enter your new  Password",Toast.LENGTH_LONG).show();
+                                    }else if(txtConfirm.length()==0) {
+                                        Toast.makeText(getApplicationContext(),"Please Confirm your new  Password",Toast.LENGTH_LONG).show();
+                                    }else if(!txtConfirm.getText().toString().equals(txtNew.getText().toString())) {
+                                        Toast.makeText(getApplicationContext(),"Your Passwords do Not Match",Toast.LENGTH_LONG).show();
+                                    }else{
+                                        SharedPreferences prefs = getSharedPreferences("MySessions", 0);
+                                        final String StaffIDNO = prefs.getString("EmployeeNo", "");
+                                        String Confirm = txtConfirm.getText().toString();
+                                        String Current = txtCurrent.getText().toString();
+
+                                        ChangeLoginPassword(MainActivity.this,Confirm,Current,StaffIDNO);
+
+                                    }
+
+                                }
+                            }
+
+
+                    );
+            builder.create();
+            builder.show();
         }else if(id == R.id.Exit)
         {
             new AlertDialog.Builder(this)
@@ -120,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
         {
                        /* Intent intent = new Intent(getActivity(), PaySlip.class);
                 Dashboard.this.startActivity(intent);*/
-            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
             LayoutInflater inflater = (MainActivity.this).getLayoutInflater();
             View dialogView = inflater.inflate(R.layout.payslip_password, null);
@@ -137,6 +181,7 @@ public class MainActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int id) {
                                     if(txtNew.length()==0) {
                                         Toast.makeText(getApplicationContext(),"Please Enter your new Payslip Password",Toast.LENGTH_LONG).show();
+
                                     }else if(txtConfirm.length()==0) {
                                         Toast.makeText(getApplicationContext(),"Please Confirm your new Payslip Password",Toast.LENGTH_LONG).show();
                                     }else if(!txtConfirm.getText().toString().equals(txtNew.getText().toString())) {
@@ -201,6 +246,47 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    public  void ChangeLoginPassword(final Context context, String Confirm, String Current, String StaffId)
+    {
+        final ProgressDialog loading = ProgressDialog.show(context, "", "Please wait...", false, false);
+        RestAdapter.Builder builder = new RestAdapter.Builder();
+        final Globals globalRecordFetch = new Globals(context);
+        builder.setEndpoint(globalRecordFetch.ROOT_URL);
+        OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setReadTimeout(120 * 1000, TimeUnit.MILLISECONDS);
+        builder.setClient(new OkClient(okHttpClient));
+        builder.setLogLevel(RestAdapter.LogLevel.FULL);
+        RestAdapter restAdapter = builder.build();
+        EmployeeAPI api = restAdapter.create(EmployeeAPI.class);
+        api.ChangeLoginPassword(
+                Confirm,
+                Current,
+                StaffId,
+                new Callback<Response>() {
+                    @Override
+                    public void success(Response result, Response response) {
+                        BufferedReader reader = null;
+                        String output = "";
+                        try {
+                            reader = new BufferedReader(new InputStreamReader(result.getBody().in()));
+                            output = reader.readLine();
+
+                            MyalertDialog(context,output);
+
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        loading.dismiss();
+                    }
+                    @Override
+                    public void failure(RetrofitError error) {
+                        loading.dismiss();
+                        MyalertDialog(context,"Connection Failed.\n Please check your internet connection and try again.");
+                    }
+                }
+        );
+    }
     public void MyalertDialog(Context context,String msg)
     {
         AlertDialog.Builder builder =

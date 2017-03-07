@@ -41,13 +41,13 @@ private TextView versionNo,website,email,phone;
             PackageManager manager = getActivity().getPackageManager();
             PackageInfo info = manager.getPackageInfo(getActivity().getPackageName(), 0);
             String version = info.versionName;
-            versionNo.setText(version);
+            versionNo.setText("Version "+version);
             website.setClickable(true);
             website.setMovementMethod(LinkMovementMethod.getInstance());
             website.setText(Html.fromHtml("<a href='http://www.fortunekenya.com'>www.fortunekenya.com</a>"));
             email.setClickable(true);
             phone.setClickable(true);
-            phone.setText(Html.fromHtml("<a href=''>Telephone 0722769149</a>"));
+            phone.setText(Html.fromHtml("<a href=''>0722769149</a>"));
             email.setText(Html.fromHtml("<a href='support@fortunekenya.com'>support@fortunekenya.com</a>"));
             email.setOnClickListener(new View.OnClickListener() {
                 @Override

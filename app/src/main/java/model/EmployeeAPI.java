@@ -36,7 +36,13 @@ public interface EmployeeAPI {
             @Field("Confirm") String Password,
             @Field("StaffIDNO") String StaffId,
             Callback<Response> callback);
-
+    @FormUrlEncoded
+    @POST("/Home/ChangePass")
+    public void ChangeLoginPassword(
+            @Field("Confirm") String Password,
+            @Field("Current") String Current,
+            @Field("StaffIDNO") String StaffId,
+            Callback<Response> callback);
 
     @FormUrlEncoded
     @POST("/Home/ReloadP9Form")

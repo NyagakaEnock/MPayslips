@@ -11,8 +11,11 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,7 +40,7 @@ import retrofit.client.Response;
  */
 public class Login extends AppCompatActivity implements View.OnClickListener{
     private Toolbar mToolbar;
-    private TextView emailAdress,passWord;
+    private EditText emailAdress,passWord;
     private Button loginButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +50,28 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         this.mToolbar = ((Toolbar)findViewById(R.id.toolbar1));
         setSupportActionBar(this.mToolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        emailAdress = (TextView)findViewById(R.id.loginEmail);
-        passWord = (TextView)findViewById(R.id.Password);
+        emailAdress = (EditText)findViewById(R.id.loginEmail);
+        passWord = (EditText)findViewById(R.id.Password);
         loginButton = (Button)findViewById(R.id.btnLogin);
         loginButton.setOnClickListener(this);
+
+        passWord.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                boolean handled = false;
+                if (i == EditorInfo.IME_ACTION_GO) {
+                    if(validateLogin()==true)
+                    {
+                         String email = emailAdress.getText().toString();
+                         String password = passWord.getText().toString();
+                        Login(email, password);
+                    }
+                    handled = true;
+                }
+                return handled;
+
+            }
+        });
 
 
     }
@@ -114,7 +135,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                     @Override
                     public void failure(RetrofitError error) {
                         loading.dismiss();
-                        MyalertDialog("Connection Failed.\n Please check your internet connection and try again."+error.getMessage());
+                        MyalertDialog("Connection Failed.\n Please check your internet connection and try again.");
                     }
                 }
         );
